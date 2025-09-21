@@ -5,8 +5,10 @@ from infra.logging.logger import ContextLogger, with_correlation
 logger = ContextLogger()
 
 @with_correlation
+# Controller para criação de usuário
 def create_user_controller(request_data: dict):
     logger.info("Iniciando processamento no Controller")
+    # Extrair dados da requisição
     name = request_data.get("name")
     description = request_data.get("description")
     db_username = request_data.get("db_username")
